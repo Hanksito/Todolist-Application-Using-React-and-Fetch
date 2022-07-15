@@ -2,8 +2,8 @@ import React from "react";
 
 
 
-const Lista = ({history,borrar,put,get}) =>{
-
+const Lista = ({history,borrar}) =>{
+  
      return(
         
      <ul className="list-group ">
