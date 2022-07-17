@@ -12,7 +12,6 @@ const Text = ({ val, setVal, put }) => {
 					let filterarr = arr.filter(caracters => caracters !== " ")
 					if (e.key === 'Enter' && filterarr.length !== 0 && e.target.value !== "") {
 						put()
-
 						setVal("");
 					}
 				}} />
