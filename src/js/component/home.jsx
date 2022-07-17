@@ -101,7 +101,15 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json"
       },
-    }).then(resp => { if (resp.ok) get() })
+    }).then(resp => {
+      if (resp.ok)
+        get()
+      else
+        throw new Error("no se ha podido borrar todo")
+    })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
 
@@ -116,6 +124,7 @@ const Home = () => {
       </div>
     </div>)
 }
+
 
 
 export default Home;
