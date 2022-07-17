@@ -32,10 +32,13 @@ const Home = () => {
       },
       body: JSON.stringify([]),
     }).then(resp => {
-      if (resp.ok) get()
-      else throw new Error("usuario no creado")
+      if (resp.ok)
+        get()
+      else
+        throw new Error("usuario no creado")
     })
-      .catch(error => console.log(error))
+      .catch(error =>
+        console.log(error))
   }
   //actualizar la informacion
   const put = () => {
@@ -46,8 +49,14 @@ const Home = () => {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(aux)
-    }).then(resp => { if(resp.ok) get()})
-    
+    }).then(resp => {
+      if (resp.ok) {
+        get()
+      }
+      else
+        throw new Error("no se ha podido actualizar la lista")
+    })
+      .catch(error => console.log(error))
   }
   // borrar la informacion de la lista
   const putborrar = (arr) => {
@@ -57,7 +66,15 @@ const Home = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(arr)
-    }).then(resp => { if (resp.ok) get() })
+    }).then(resp => {
+      if (resp.ok) {
+        get()
+      }
+      else
+        throw new Error("no se ha podido borrar los elementos")
+    })
+      .catch(error =>
+        console.log(error))
   }
   useEffect(() => {
     get()
@@ -67,15 +84,15 @@ const Home = () => {
   const borrar = (item) => {
     let aux = history.filter((elemento) => elemento != item)
 
-    if(aux.length == 0 )
+    if (aux.length == 0)
       Deleteall()
 
-    else{
+    else {
       setHistory(aux);
       putborrar(aux)
-    }    
+    }
   };
-  
+
 
   //borrar usuario y lista
   const Deleteall = () => {
